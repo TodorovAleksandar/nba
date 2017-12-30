@@ -31,7 +31,7 @@
         </ul>
     @endif
     <h4>Post a comment</h4>
-    <form method="POST" action=" /comments/add/{{ $player->id }}">
+    <form method="POST" action=" /comments/add/{{ $team->id }}">
 
         {{ csrf_field() }}
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Comment;
 use App\User;
 use App\Team;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -18,12 +19,13 @@ class CommentsController extends Controller
         $this->validate(request(),
         ['required'=>'text']);
 
-        $id = Auth::id();
+      
 
 
         $comment = new Comment();
         $comment->text = $request['text'];
-        $comment->user_id = $id;
+        $comment->team_id=$id;
+        $comment->user_id =Auth::id();
         $comment->save();
         return back();
 
